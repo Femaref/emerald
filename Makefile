@@ -1,9 +1,9 @@
 CC        := gcc
 LD        := gcc
-CCARGS    := 
+CCARGS    := -std=c99
 LDARGS    := -framework OpenGL -framework GLUT
 
-MODULES   := object ui engine
+MODULES   := $(shell find src/* -type d -exec basename {} \;)
 SRC_DIR   := $(addprefix src/,$(MODULES))
 BUILD_DIR := $(addprefix build/,$(MODULES))
 
