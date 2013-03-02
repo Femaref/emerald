@@ -1,8 +1,9 @@
 CC        := gcc
 LD        := gcc
-CCARGS    := -I/opt/local/include/
+CCARGS    := 
+LDARGS    := -framework OpenGL -framework GLUT
 
-MODULES   := object ui
+MODULES   := object ui engine
 SRC_DIR   := $(addprefix src/,$(MODULES))
 BUILD_DIR := $(addprefix build/,$(MODULES))
 
@@ -22,7 +23,7 @@ endef
 all: checkdirs build/main
 
 build/main: $(OBJ)
-	$(LD) $(CCARGS) $^ -o $@
+	$(LD) $(LDARGS) $^ -o $@
 
 
 checkdirs: $(BUILD_DIR)
