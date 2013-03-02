@@ -24,3 +24,8 @@ void keyboard (unsigned char key, int x, int y) {
 }
 void keyboard_s (int key, int x, int y) {
 }
+
+void motion(int x, int y) {
+  int dx = x - state.mouse_x;
+  int dy = y - state.mouse_y;
+}

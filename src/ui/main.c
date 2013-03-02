@@ -17,8 +17,10 @@ int main(int argc, char **argv) {
    glutDisplayFunc(engine_display);
    glutIdleFunc(engine_display);
    glutReshapeFunc(engine_resize);
+   
    glutKeyboardFunc(keyboard);
    glutSpecialFunc(keyboard_s);
+   glutMotionFunc(motion);
    
    engine_init(640, 480);
    glutMainLoop();

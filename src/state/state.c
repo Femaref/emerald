@@ -2,6 +2,8 @@
 #include <model.h>
 
 void state_init() {
+
+  //basic cube
   model_type cube = {
       {
           -10,-10, 10, //vertex v0
@@ -30,4 +32,11 @@ void state_init() {
   };
   
   state.cube = cube;
+  
+  // camera
+  camera_type camera = {
+    0, 0, 0, 0, 0, -100
+  };
+  
+  state.camera = camera;
 }

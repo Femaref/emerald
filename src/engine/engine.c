@@ -28,6 +28,13 @@ void render_cube(void) {
   glEnd();
 }
 
+void engine_camera(void) {
+  glRotatef(state.camera.pitch, 1.0f, 0.0f, 0.0f);
+  glRotatef(state.camera.yaw, 0.0f, 1.0f, 0.0f);
+  glRotatef(state.camera.roll, 0.0f, 0.0f, 1.0f);
+  glTranslatef(-state.camera.x, -state.camera.y, -state.camera.z);
+}
+
 
 void engine_display(void) {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -35,19 +42,21 @@ void engine_display(void) {
 
   for(int x = 0; x < 4; x++) {
     for(int y = 0; y < 4; y++) {
-      glLoadIdentity();
-      glTranslatef(-40 + 20*x,-40+20*y,-150);
-      render_cube();
+      for(int z = 0; z < 4; z++) {
+        glLoadIdentity();
+        engine_camera();
+        glTranslatef(0 + 20*x,0+20*y,0 + 20*z);
+        
+        render_cube();
+      }
     }
   }
-
-
-
+  
   glFlush();
   glutSwapBuffers();
 }
 
-void engine_resize (int width, int height)
+void engine_resize(int width, int height)
 {
   glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glViewport(0,0,width,height);
