@@ -4,18 +4,21 @@
 #include <GLUT/glut.h>
 
 void engine_init(int width, int height) {
-   glClearColor(0.0, 0.0, 0.2, 0.0);
-   glShadeModel(GL_SMOOTH);
-   glViewport(0,0,width,height);
-   glMatrixMode(GL_PROJECTION);
-   glLoadIdentity();
-   gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,1.0f,1000.0f);
-   glEnable(GL_DEPTH_TEST);
-   glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
+  state.width = width;
+  state.height = height;
+
+
+  glClearColor(0.0, 0.0, 0.2, 0.0);
+  glShadeModel(GL_SMOOTH);
+  glViewport(0,0,width,height);
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,1.0f,1000.0f);
+  glEnable(GL_DEPTH_TEST);
+  glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
 }
 
 void render_cube(void) {
-
   glBegin(GL_TRIANGLES);
   for (int l_index=0;l_index<12;l_index++) {
     glColor3f(1.0,0.0,0.0);
@@ -58,6 +61,9 @@ void engine_display(void) {
 
 void engine_resize(int width, int height)
 {
+  state.width = width;
+  state.height = height;
+
   glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glViewport(0,0,width,height);
   glMatrixMode(GL_PROJECTION);

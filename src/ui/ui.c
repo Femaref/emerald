@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <GLUT/glut.h>
 
 #include "ui.h"
@@ -28,4 +29,9 @@ void keyboard_s (int key, int x, int y) {
 void motion(int x, int y) {
   int dx = x - state.mouse_x;
   int dy = y - state.mouse_y;
+  
+  state.mouse_x = x;
+  state.mouse_y = y;
+  
+  printf("dx: %d, dy: %d\n", dx, dy);
 }
