@@ -1,8 +1,10 @@
 #ifndef POLYGON_H_
 #define POLYGON_H_
 
+#include "vertex.h"
+
 typedef struct {
-    vertex_type a,b,c;
+    int a,b,c;
 } polygon_type;
 
 #endif // POLYGON_H_
