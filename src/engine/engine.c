@@ -1,7 +1,8 @@
 #include "engine.h"
+#include <object.h>
 #include <GLUT/glut.h>
 
-void init(int width, int height) {
+void engine_init(int width, int height) {
    glClearColor(0.0, 0.0, 0.2, 0.0);
    glShadeModel(GL_SMOOTH);
    glViewport(0,0,width,height);

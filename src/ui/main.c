@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
    glutKeyboardFunc(keyboard);
    glutSpecialFunc(keyboard_s);
    
-   init();
+   engine_init(640, 480);
    glutMainLoop();
 
   return 0;
