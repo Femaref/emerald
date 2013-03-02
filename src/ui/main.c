@@ -2,6 +2,7 @@
 #include <GLUT/glut.h>
 
 #include <engine.h>
+#include <ui.h>
 
 int main(int argc, char **argv) {
    glutInit(&argc, argv);
@@ -12,6 +13,9 @@ int main(int argc, char **argv) {
    
    glutDisplayFunc(engine_display);
    glutIdleFunc(engine_display);
+   glutReshapeFunc(engine_resize);
+   glutKeyboardFunc(keyboard);
+   glutSpecialFunc(keyboard_s);
    
    init();
    glutMainLoop();
