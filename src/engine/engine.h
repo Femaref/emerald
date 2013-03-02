@@ -3,6 +3,7 @@
 
 void engine_init(int width, int height);
 void engine_display(void);
+void engine_resize(int width, int height);
 
 
 #endif // ENGINE_H_

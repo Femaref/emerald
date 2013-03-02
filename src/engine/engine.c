@@ -17,3 +17,13 @@ void engine_display(void) {
   glFlush();
   glutSwapBuffers();
 }
+
+void engine_resize (int width, int height)
+{
+   glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+   glViewport(0,0,width,height);
+   glMatrixMode(GL_PROJECTION);
+   glLoadIdentity();
+   gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,1.0f,1000.0f);
+   glutPostRedisplay ();
+}
