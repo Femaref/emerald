@@ -3,8 +3,11 @@
 
 #include <engine.h>
 #include <ui.h>
+#include <state.h>
 
 int main(int argc, char **argv) {
+    state_init();
+
    glutInit(&argc, argv);
    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
    glutInitWindowSize(640, 480);
