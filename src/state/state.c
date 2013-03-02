@@ -1,8 +1,8 @@
 #include "state.h"
-#include <object.h>
+#include <model.h>
 
 void state_init() {
-  obj_type cube = {
+  model_type cube = {
       {
           -10,-10, 10, //vertex v0
            10,-10, 10, //vertex v1

@@ -1,6 +1,6 @@
 #include "engine.h"
 #include <state.h>
-#include <object.h>
+#include <model.h>
 #include <GLUT/glut.h>
 
 void engine_init(int width, int height) {

@@ -1,5 +1,5 @@
-#ifndef OBJECT_H_
-#define OBJECT_H_
+#ifndef MODEL_H_
+#define MODEL_H_
 
 #define MAX_VERTICES 2000
 #define MAX_POLYGONS 2000
@@ -10,6 +10,6 @@
 typedef struct {
     vertex_type vertex[MAX_VERTICES];
     polygon_type polygon[MAX_POLYGONS];
-} obj_type,*obj_type_ptr;
+} model_type,*model_type_ptr;
 
-#endif // OBJECT_H_
+#endif // MODEL_H_

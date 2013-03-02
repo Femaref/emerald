@@ -1,11 +1,11 @@
 #ifndef STATE_H_
 #define STATE_H_
 
-#include <object.h>
+#include <model.h>
 
 struct {
   int filling;
-  obj_type cube;
+  model_type cube;
 } state;
 
 void state_init();
