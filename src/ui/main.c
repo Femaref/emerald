@@ -20,6 +20,7 @@ int main(int argc, char **argv) {
    
    glutKeyboardFunc(keyboard);
    glutSpecialFunc(keyboard_s);
+   glutMouseFunc(mouse_down);
    glutMotionFunc(motion);
    
    engine_init(640, 480);

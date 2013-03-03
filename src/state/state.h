@@ -4,10 +4,11 @@
 #include <model.h>
 #include <camera.h>
 
-struct {
+struct state {
   int filling;  
   camera_type camera;
   model_type cube;
+  int width, height;
   int mouse_x, mouse_y;
 } state;
 
