@@ -11,25 +11,42 @@
 
 void keyboard (unsigned char key, int x, int y) {
   matrix4 *matrix = malloc_matrix();
-  matrix4 *temp = malloc_matrix();
+  vector *vec = malloc_vector();
+  vec->data[2] = -1;
+  vec->data[3] = 1;
 
-  identity4(matrix);
- 
-  rotate4x(matrix, state.camera.pitch);
+  identity4(matrix); 
+  
+  rotate4z(matrix, state.camera.roll);
   rotate4y(matrix, state.camera.yaw);
+  rotate4x(matrix, -state.camera.pitch);
   
-  print_matrix(matrix);
+  apply(vec, matrix);
+  normalize(vec);
+  if (vec->data[2] < 0) {
+    vec->data[1] *= -1;
+  }
+  print_vector(vec);
   
+  scale(vec, 10);
+  
+  printf("pitch: %f, yaw: %f\n", state.camera.pitch, state.camera.yaw);
 
   switch(key) {
     case 'q':
       exit(0);
       break;
     case 'w':
+      state.camera.x += vec->data[0];
+      state.camera.y += vec->data[1];
+      state.camera.z += vec->data[2];
       break;
     case 'a':
       break;
     case 's':
+      state.camera.x -= vec->data[0];
+      state.camera.y -= vec->data[1];
+      state.camera.z -= vec->data[2];
       break;
     case 'd':
       break;
@@ -45,6 +62,9 @@ void keyboard (unsigned char key, int x, int y) {
     default:
       break;
   }
+  
+  
+  printf("x: %f, y: %f, z: %f\n", state.camera.x, state.camera.y, state.camera.z);
 }
 void keyboard_s (int key, int x, int y) {
 }
@@ -70,8 +90,10 @@ void motion(int x, int y) {
   int right = dx > 0;
   
   
-  state.camera.pitch += up ? -change_y*90 : change_y*90;
-  state.camera.yaw += right ? change_x*90 : -change_x*90;
+  state.camera.pitch += up ? change_y*90 : -change_y*90;
+  state.camera.yaw += right ? -change_x*90 : change_x*90;
+  
+  printf("pitch: %f, yaw: %f\n", state.camera.pitch, state.camera.yaw);
   
   if(state.camera.pitch > 360) {
     state.camera.pitch -= 360;

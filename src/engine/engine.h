@@ -7,7 +7,7 @@ void engine_resize(int width, int height);
 
 void engine_camera();
 
-void render_cube();
+void render_cube(float r, float g, float b);
 
 
 #endif // ENGINE_H_
