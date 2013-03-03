@@ -35,7 +35,7 @@ void state_init() {
   
   // camera
   camera_type camera = {
-    0, 0, 0, 0, 0, -100
+    0, 180, 0, 0, 0, -100
   };
   
   state.camera = camera;
