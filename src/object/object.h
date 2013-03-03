@@ -5,6 +5,7 @@
 
 typedef struct {
   position_type pos;
+  int type;
 } obj_type;
 
 #endif // OBJECT_H_
