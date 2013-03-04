@@ -121,7 +121,7 @@ void apply(vector *vec, matrix4 *matrix) {
   }
   
   copy_vector(vec, output);
-  freeVector(output);
+  free_vector(output);
 }
 
 void normalize(vector *vec) {
@@ -141,7 +141,7 @@ void free4(matrix4 *matrix) {
   free(matrix);
 }
 
-void freeVector(vector *vec) {
+void free_vector(vector *vec) {
   free(vec);
 }
 

@@ -10,22 +10,7 @@
 
 
 void keyboard (unsigned char key, int x, int y) {
-  matrix4 *matrix = malloc_matrix();
-  vector *vec = malloc_vector();
-  vec->data[2] = -1;
-  vec->data[3] = 1;
-
-  identity4(matrix); 
-  
-  rotate4z(matrix, state.camera.roll);
-  rotate4y(matrix, state.camera.yaw);
-  rotate4x(matrix, -state.camera.pitch);
-  
-  apply(vec, matrix);
-  normalize(vec);
-  if (vec->data[2] < 0) {
-    vec->data[1] *= -1;
-  }
+  vector *vec = camera_direction(-state.camera.pitch, state.camera.yaw, state.camera.roll);
   print_vector(vec);
   
   scale(vec, 10);
@@ -63,7 +48,7 @@ void keyboard (unsigned char key, int x, int y) {
       break;
   }
   
-  
+  free_vector(vec);
   printf("x: %f, y: %f, z: %f\n", state.camera.x, state.camera.y, state.camera.z);
 }
 void keyboard_s (int key, int x, int y) {

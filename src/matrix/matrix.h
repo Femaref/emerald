@@ -24,7 +24,7 @@ void scale(vector *vec, float scalar);
 void print_matrix(matrix4 *matrix);
 void print_vector(vector *vector);
 void free4(matrix4 *matrix);
-void freeVector(vector *vec);
+void free_vector(vector *vec);
 
 
 #endif // MATRIX_H_
