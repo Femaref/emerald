@@ -11,9 +11,14 @@
 
 void keyboard (unsigned char key, int x, int y) {
   vector *vec = camera_direction(-state.camera.pitch, state.camera.yaw, state.camera.roll);
-  print_vector(vec);
+  vector *move = malloc_vector();
+  copy_vector(move, vec);
+
   
   scale(vec, 10);
+  
+
+  rotate(move, 0, 90, 0);
   
   printf("pitch: %f, yaw: %f\n", state.camera.pitch, state.camera.yaw);
 
@@ -27,6 +32,8 @@ void keyboard (unsigned char key, int x, int y) {
       state.camera.z += vec->data[2];
       break;
     case 'a':
+      state.camera.x += 10*move->data[0];
+      state.camera.z += 10*move->data[2];
       break;
     case 's':
       state.camera.x -= vec->data[0];
@@ -34,6 +41,8 @@ void keyboard (unsigned char key, int x, int y) {
       state.camera.z -= vec->data[2];
       break;
     case 'd':
+      state.camera.x -= 10*move->data[0];
+      state.camera.z -= 10*move->data[2];
       break;
       
     case 'r': case 'R':

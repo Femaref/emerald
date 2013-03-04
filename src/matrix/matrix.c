@@ -96,6 +96,20 @@ void rotate4z(matrix4 *matrix, float degree) {
   free4(temp);
 }
 
+void rotate(vector *vector, float pitch, float yaw, float roll) {
+  matrix4 *matrix = malloc_matrix();
+  identity4(matrix); 
+  
+  rotate4z(matrix, roll);
+  rotate4y(matrix, yaw);
+  rotate4x(matrix, pitch);
+  
+  apply(vector, matrix);
+  normalize(vector);
+    
+  free4(matrix);
+}
+
 void multiply(matrix4 *output, matrix4 *a, matrix4 *b) {
   free4(output);
   output = malloc_matrix();

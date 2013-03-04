@@ -14,6 +14,7 @@ void copy_matrix(matrix4 *dst, matrix4 *src);
 void copy_vector(vector *dst, vector *src);
 void identity4(matrix4 *matrix);
 void translate4(matrix4 *matrix, float x, float y, float z);
+void rotate(vector *vector, float pitch, float yaw, float roll);
 void rotate4x(matrix4 *matrix, float degree);
 void rotate4y(matrix4 *matrix, float degree);
 void rotate4z(matrix4 *matrix, float degree);
